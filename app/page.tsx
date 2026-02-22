@@ -8,7 +8,7 @@ import { HouseDesign } from "@/types";
 import designsData from "@/data/designs.json";
 
 export default function Home() {
-  const featuredDesigns = (designsData as HouseDesign[]).slice(0, 2);
+  const featuredDesigns = (designsData as HouseDesign[]).slice(0, 4);
 
   return (
     <main className="min-h-screen flex flex-col bg-background selection:bg-primary/20">
@@ -106,22 +106,26 @@ export default function Home() {
       </section>
 
       {/* Featured Designs - Elegant Grid */}
-      <section className="py-32 max-w-7xl mx-auto px-6 w-full">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-          <div>
-            <span className="text-accent tracking-widest uppercase text-xs font-semibold mb-4 block">Signature Series</span>
-            <h2 className="text-4xl md:text-5xl font-heading font-light text-foreground">Featured Masterpieces</h2>
+      <section className="py-32 bg-secondary/10 w-full border-t border-border">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div>
+              <span className="text-accent tracking-widest uppercase text-xs font-semibold mb-4 block">Signature Series</span>
+              <h2 className="text-4xl md:text-5xl font-heading font-light text-foreground">Featured Masterpieces</h2>
+            </div>
+            <Link href="/designs" className="group flex items-center gap-2 text-primary font-medium hover:text-primary/80 transition-colors pb-2 border-b border-primary/30">
+              Explore Our Full Portfolio
+              <ArrowRight className="group-hover:translate-x-1 transition-transform" size={16} />
+            </Link>
           </div>
-          <Link href="/designs" className="group flex items-center gap-2 text-primary font-medium hover:text-primary/80 transition-colors pb-2 border-b border-primary/30">
-            View All Designs
-            <ArrowRight className="group-hover:translate-x-1 transition-transform" size={16} />
-          </Link>
-        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-16">
-          {featuredDesigns.map(design => (
-            <DesignCard key={design.slug} design={design} />
-          ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+            {featuredDesigns.map((design, idx) => (
+              <div key={design.slug} className={idx % 2 === 1 ? "md:mt-16" : ""}>
+                <DesignCard design={design} />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

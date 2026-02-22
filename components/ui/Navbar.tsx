@@ -2,11 +2,14 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const pathname = usePathname();
+    const isHomePage = pathname === "/";
 
     useEffect(() => {
         const handleScroll = () => {
@@ -16,9 +19,12 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const textColor = isScrolled || !isHomePage ? "text-foreground" : "text-white";
+    const linkColor = isScrolled || !isHomePage ? "text-foreground/80 hover:text-primary" : "text-white/90 hover:text-white";
+
     return (
         <nav
-            className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled
+            className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled || !isHomePage
                     ? "bg-background/90 backdrop-blur-md shadow-sm border-b border-border/50 py-4"
                     : "bg-transparent py-6"
                 }`}
@@ -30,17 +36,17 @@ export default function Navbar() {
                         <div className="flex items-center justify-center font-heading font-medium text-xl tracking-widest text-primary border border-primary/20 bg-background/50 w-12 h-12 rounded-full transition-transform group-hover:rotate-12 duration-500">
                             MHC
                         </div>
-                        <div className={`flex flex-col transition-colors duration-300 ${isScrolled ? "text-foreground" : "text-foreground sm:text-white text-shadow-sm"}`}>
+                        <div className={`flex flex-col transition-colors duration-300 ${textColor} ${!isScrolled && isHomePage ? "text-shadow-sm" : ""}`}>
                             <span className="font-heading font-medium text-lg tracking-wide uppercase">Modern House</span>
                             <span className="text-[10px] font-medium tracking-[0.2em] text-primary uppercase">Construction</span>
                         </div>
                     </Link>
 
                     <div className="hidden lg:flex items-center gap-8">
-                        <Link href="/about" className={`text-sm font-medium tracking-wide hover:text-primary transition-colors ${isScrolled ? "text-foreground/80" : "text-white/90"}`}>Philosophy</Link>
-                        <Link href="/services" className={`text-sm font-medium tracking-wide hover:text-primary transition-colors ${isScrolled ? "text-foreground/80" : "text-white/90"}`}>Services</Link>
-                        <Link href="/designs" className={`text-sm font-medium tracking-wide hover:text-primary transition-colors ${isScrolled ? "text-foreground/80" : "text-white/90"}`}>Portfolio</Link>
-                        <Link href="/gallery" className={`text-sm font-medium tracking-wide hover:text-primary transition-colors ${isScrolled ? "text-foreground/80" : "text-white/90"}`}>Journal</Link>
+                        <Link href="/about" className={`text-sm font-medium tracking-wide transition-colors ${linkColor}`}>Philosophy</Link>
+                        <Link href="/services" className={`text-sm font-medium tracking-wide transition-colors ${linkColor}`}>Services</Link>
+                        <Link href="/designs" className={`text-sm font-medium tracking-wide transition-colors ${linkColor}`}>Portfolio</Link>
+                        <Link href="/gallery" className={`text-sm font-medium tracking-wide transition-colors ${linkColor}`}>Journal</Link>
                     </div>
 
                     <div className="hidden lg:flex">
@@ -50,7 +56,7 @@ export default function Navbar() {
                     </div>
 
                     <button
-                        className={`lg:hidden flex items-center justify-center w-10 h-10 transition-colors ${isScrolled ? "text-foreground" : "text-white"}`}
+                        className={`lg:hidden flex items-center justify-center w-10 h-10 transition-colors ${textColor}`}
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     >
                         {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}

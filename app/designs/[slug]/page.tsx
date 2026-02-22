@@ -7,8 +7,9 @@ import Footer from "@/components/ui/Footer";
 import designsData from "@/data/designs.json";
 import { HouseDesign } from "@/types";
 
-export default function DesignDetail({ params }: { params: { slug: string } }) {
-    const design = (designsData as HouseDesign[]).find(d => d.slug === params.slug);
+export default async function DesignDetail({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
+    const design = (designsData as HouseDesign[]).find(d => d.slug === slug);
 
     if (!design) {
         notFound();
