@@ -11,16 +11,16 @@ export default function DesignsPage() {
         <main className="min-h-screen flex flex-col bg-background selection:bg-primary/20">
             <Navbar />
 
-            <section className="pt-40 lg:pt-52 pb-24 max-w-7xl mx-auto px-6 w-full flex-grow">
-                <div className="text-center max-w-3xl mx-auto mb-20 lg:mb-32">
+            <section className="pt-32 lg:pt-52 pb-16 md:pb-24 max-w-7xl mx-auto px-6 w-full flex-grow">
+                <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20 lg:mb-32">
                     <span className="text-accent tracking-widest uppercase text-xs font-semibold mb-6 block">Architectural Models</span>
-                    <h1 className="text-5xl md:text-6xl font-heading font-light tracking-tight text-foreground mb-8">Portfolio.</h1>
-                    <p className="text-foreground/70 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto">
+                    <h1 className="text-4xl md:text-6xl font-heading font-light tracking-tight text-foreground mb-8">Portfolio.</h1>
+                    <p className="text-foreground/70 text-base md:text-xl font-light leading-relaxed max-w-2xl mx-auto">
                         Explore our curated collection of tropical home designs. Each model can be customized to fit your specific land dimensions and lifestyle requirements.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                     {designs.map(design => (
                         <DesignCard key={design.slug} design={design} />
                     ))}

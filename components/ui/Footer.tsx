@@ -5,8 +5,8 @@ export default function Footer() {
     return (
         <footer className="bg-background pt-24 pb-12 border-t border-border">
             <div className="max-w-[1400px] mx-auto px-6">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-16 mb-20 text-foreground">
-                    <div className="md:col-span-1">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-20 text-foreground">
+                    <div className="sm:col-span-2 lg:col-span-1">
                         <Link href="/" className="flex items-center gap-4 mb-8 group">
                             <div className="flex items-center justify-center font-heading font-light text-xl tracking-widest text-primary border border-primary/20 w-12 h-12 rounded-full">
                                 MHC
@@ -16,7 +16,7 @@ export default function Footer() {
                                 <span className="text-[10px] font-medium tracking-[0.2em] text-primary uppercase">Construction</span>
                             </div>
                         </Link>
-                        <p className="text-foreground/70 text-sm leading-relaxed max-w-xs mb-8 font-light">
+                        <p className="max-[425px]:hidden text-foreground/70 text-sm leading-relaxed max-w-xs mb-8 font-light">
                             Experienced and reliable construction company specializing in residential and commercial projects
                         </p>
                         <div className="flex gap-4 text-primary">
@@ -37,7 +37,7 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    <div>
+                    <div className="max-[425px]:hidden">
                         <h4 className="font-heading font-semibold mb-6 text-sm tracking-widest uppercase text-foreground">Expertise</h4>
                         <ul className="space-y-4 text-sm text-foreground/70 font-light">
                             <li><Link href="/services#design" className="hover:text-primary transition-colors">Architectural Design</Link></li>
@@ -66,9 +66,9 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
-                    <p className="text-foreground/50 text-xs font-light">
-                        &copy; {new Date().getFullYear()} Modern House Construction (PVT) LTD. All rights reserved.
+                <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-6">
+                    <p className="text-foreground/50 text-xs font-light text-center md:text-left">
+                        &copy; {new Date().getFullYear()} <span className="max-[425px]:hidden">Modern House Construction (PVT) LTD.</span><span className="min-[426px]:hidden">MHC.</span> All rights reserved.
                     </p>
                     <div className="flex gap-6 text-xs text-foreground/50 font-light">
                         <Link href="#" className="hover:text-primary transition-colors">Privacy Policy</Link>

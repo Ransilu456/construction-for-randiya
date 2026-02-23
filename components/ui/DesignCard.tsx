@@ -34,18 +34,18 @@ export default function DesignCard({ design }: DesignCardProps) {
                         {design.description}
                     </p>
 
-                    <div className="grid grid-cols-3 gap-2 py-4 border-t border-border/50 mt-auto">
-                        <div className="flex items-center justify-center gap-1.5">
-                            <BedDouble className="text-accent/70" size={16} />
-                            <span className="text-[11px] font-medium text-foreground tracking-wide">{design.bedrooms} Beds</span>
+                    <div className="grid grid-cols-3 gap-1 py-4 border-t border-border/50 mt-auto">
+                        <div className="flex items-center justify-center gap-1">
+                            <BedDouble className="text-accent/70 shrink-0" size={14} />
+                            <span className="text-[10px] sm:text-[11px] font-medium text-foreground tracking-tight sm:tracking-wide">{design.bedrooms} Beds</span>
                         </div>
-                        <div className="flex items-center justify-center gap-1.5 border-x border-border/50">
-                            <Bath className="text-accent/70" size={16} />
-                            <span className="text-[11px] font-medium text-foreground tracking-wide">{design.bathrooms} Baths</span>
+                        <div className="flex items-center justify-center gap-1 border-x border-border/50">
+                            <Bath className="text-accent/70 shrink-0" size={14} />
+                            <span className="text-[10px] sm:text-[11px] font-medium text-foreground tracking-tight sm:tracking-wide">{design.bathrooms} Baths</span>
                         </div>
-                        <div className="flex items-center justify-center gap-1.5">
-                            <Square className="text-accent/70" size={16} />
-                            <span className="text-[11px] font-medium text-foreground tracking-wide">{design.area}</span>
+                        <div className="flex items-center justify-center gap-1">
+                            <Square className="text-accent/70 shrink-0" size={14} />
+                            <span className="text-[10px] sm:text-[11px] font-medium text-foreground tracking-tight sm:tracking-wide">{design.area}</span>
                         </div>
                     </div>
 

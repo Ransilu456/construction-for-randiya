@@ -45,6 +45,7 @@
     color: var(--foreground);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* Prevent horizontal scroll on mobile */
   }
 
   h1,
@@ -54,6 +55,16 @@
   h5,
   h6 {
     font-family: var(--font-heading);
+    line-height: 1.1;
+  }
+
+  /* Fluid typography */
+  h1 { font-size: clamp(2.5rem, 8vw, 6rem); }
+  h2 { font-size: clamp(2rem, 5vw, 3.5rem); }
+  h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
+  
+  p {
+    line-height: 1.6;
   }
 }
 

@@ -8,21 +8,21 @@ export default function ContactPage() {
         <main className="min-h-screen flex flex-col bg-background selection:bg-primary/20">
             <Navbar />
 
-            <section className="pt-40 lg:pt-52 pb-24 max-w-7xl mx-auto px-6 w-full flex-grow">
-                <div className="text-center max-w-3xl mx-auto mb-20 lg:mb-32">
+            <section className="pt-32 lg:pt-52 pb-16 md:pb-24 max-w-7xl mx-auto px-6 w-full flex-grow">
+                <div className="text-center max-w-3xl mx-auto mb-12 md:mb-20 lg:mb-32">
                     <span className="text-accent tracking-widest uppercase text-xs font-semibold mb-6 block">Inquiries</span>
-                    <h1 className="text-5xl md:text-6xl font-heading font-light tracking-tight text-foreground mb-8">Start a Conversation.</h1>
-                    <p className="text-foreground/70 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto">
+                    <h1 className="text-4xl md:text-6xl font-heading font-light tracking-tight text-foreground mb-8">Start a Conversation.</h1>
+                    <p className="text-base md:text-xl font-light leading-relaxed max-w-2xl mx-auto text-foreground/70">
                         Whether you are ready to build or simply exploring possibilities, our architects are here to guide you through the process of creating your tropical sanctuary.
                     </p>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-16 lg:gap-32 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 items-start">
 
                     {/* Contact Form */}
-                    <div className="bg-card p-10 md:p-14 border border-border shadow-sm rounded-sm">
-                        <h2 className="text-3xl font-heading font-light text-foreground mb-10">Send a Message</h2>
-                        <form className="space-y-8 flex flex-col">
+                    <div className="bg-card p-6 md:p-14 border border-border shadow-sm rounded-sm">
+                        <h2 className="text-2xl md:text-3xl font-heading font-light text-foreground mb-10">Send a Message</h2>
+                        <form className="space-y-6 md:space-y-8 flex flex-col">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <div className="space-y-3">
                                     <label className="text-xs uppercase tracking-widest text-foreground/60 font-semibold" htmlFor="name">Full Name</label>
@@ -55,17 +55,17 @@ export default function ContactPage() {
                                 <textarea id="message" rows={4} className="w-full bg-transparent border-b border-border py-3 text-foreground focus:outline-none focus:border-primary transition-colors placeholder:text-foreground/30 font-light resize-none" placeholder="Briefly describe your vision, land location, and estimated timeline..."></textarea>
                             </div>
 
-                            <button type="submit" className="w-full py-5 bg-primary text-white font-medium hover:bg-primary/90 transition-all uppercase tracking-widest text-sm shadow-lg hover:-translate-y-1">
+                            <button type="submit" className="w-full py-5 bg-primary text-white font-medium hover:bg-primary/90 transition-all uppercase tracking-widest text-xs md:text-sm shadow-lg active:scale-[0.98]">
                                 Submit Inquiry
                             </button>
                         </form>
                     </div>
 
                     {/* Contact Info & Map */}
-                    <div className="space-y-16 lg:py-8">
+                    <div className="space-y-12 md:space-y-16 lg:py-8">
                         <div>
-                            <h2 className="text-3xl font-heading font-light text-foreground mb-8">Studio Headquarters</h2>
-                            <p className="text-foreground/70 font-light leading-relaxed mb-10">
+                            <h2 className="text-2xl md:text-3xl font-heading font-light text-foreground mb-6 md:mb-8">Studio Headquarters</h2>
+                            <p className="text-foreground/70 text-base font-light leading-relaxed mb-8 md:mb-10">
                                 Our architectural studio is located in the heart of Chilaw. Meetings are by strict appointment only to ensure dedicated creative focus for our clients.
                             </p>
 
