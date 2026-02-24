@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Development Proposal — Pricing &amp; Services</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --ink: #1a1a1a;
+            --ink-mid: #444;
+            --ink-soft: #777;
+            --ink-faint: #aaa;
+            --border: #e0e0e0;
+            --bg-off: #f7f6f3;
+            --bg-card: #ffffff;
+            --accent: #2c3e50;
+            --accent-gold: #b8955a;
+            --accent-gold-light: #f5ead8;
+            --green: #27ae60;
+            --green-light: #eafaf1;
+            --paper: #fffef9;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            background: #ebebeb;
+            color: var(--ink);
+            font-size: 14px;
+        }
+
+        /* ── Cover ── */
+        .cover {
+            min-height: 100vh;
+            background: linear-gradient(160deg, #101820 60%, #1e2d3d 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 48px;
+            color: #fff;
+            page-break-after: always;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cover::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255, 255, 255, .03) 40px),
+                repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255, 255, 255, .03) 40px);
+        }
+
+        .cover-badge {
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 28px;
+            border: 1px solid rgba(184, 149, 90, .4);
+            padding: 6px 20px;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .cover-logo {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(255, 255, 255, .2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 auto 36px;
+            background: rgba(255, 255, 255, .05);
+            position: relative;
+        }
+
+        .cover h1 {
+            font-size: 48px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            line-height: 1.15;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .cover h1 span {
+            color: var(--accent-gold);
+            font-weight: 500;
+        }
+
+        .cover h2 {
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            color: rgba(255, 255, 255, .5);
+            text-transform: uppercase;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .cover-divider {
+            width: 48px;
+            height: 1px;
+            background: rgba(255, 255, 255, .2);
+            margin: 0 auto 40px;
+            position: relative;
+        }
+
+        .cover-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 32px;
+            max-width: 560px;
+            width: 100%;
+            position: relative;
+        }
+
+        .cover-meta-item {
+            text-align: center;
+        }
+
+        .cover-meta-item .label {
+            font-size: 9px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .35);
+            margin-bottom: 6px;
+        }
+
+        .cover-meta-item .value {
+            font-size: 13px;
+            color: rgba(255, 255, 255, .8);
+            font-weight: 500;
+        }
+
+        /* ── Doc Layout ── */
+        .doc {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 0 60px;
+        }
+
+        .doc-section {
+            background: var(--paper);
+            margin: 40px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, .08);
+            border-radius: 3px;
+            overflow: hidden;
+            page-break-inside: avoid;
+        }
+
+        .section-header {
+            background: var(--accent);
+            color: #fff;
+            padding: 16px 32px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .section-header .sh-num {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .section-header.gold {
+            background: linear-gradient(90deg, var(--accent-gold) 0%, #9a7a45 100%);
+        }
+
+        .section-header.green-hdr {
+            background: linear-gradient(90deg, #1e6b40 0%, #27ae60 100%);
+        }
+
+        .section-body {
+            padding: 36px 32px;
+        }
+
+        /* ── Typography ── */
+        .sec-eyebrow {
+            font-size: 9px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+        }
+
+        .sec-title {
+            font-size: 26px;
+            font-weight: 300;
+            color: var(--ink);
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .sec-lead {
+            font-size: 13px;
+            color: var(--ink-soft);
+            line-height: 1.8;
+            max-width: 640px;
+            margin-bottom: 32px;
+        }
+
+        /* ── Process Steps ── */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 28px;
+            left: 12.5%;
+            right: 12.5%;
+            height: 1.5px;
+            background: var(--border);
+            z-index: 0;
+        }
+
+        .step {
+            text-align: center;
+            padding: 0 12px 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-num {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 300;
+            margin: 0 auto 16px;
+            border: 3px solid var(--paper);
+            box-shadow: 0 0 0 1.5px var(--border);
+        }
+
+        .step-num.gold {
+            background: var(--accent-gold);
+        }
+
+        .step h4 {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 8px;
+            letter-spacing: .5px;
+        }
+
+        .step p {
+            font-size: 11px;
+            color: var(--ink-soft);
+            line-height: 1.7;
+        }
+
+        /* ── Deliverables ── */
+        .deliverables {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .deliverable-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px;
+            border: 1px solid var(--border);
+            background: var(--bg-off);
+            border-radius: 2px;
+        }
+
+        .d-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 14px;
+        }
+
+        .d-text h5 {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 4px;
+        }
+
+        .d-text p {
+            font-size: 11px;
+            color: var(--ink-soft);
+            line-height: 1.6;
+        }
+
+        /* ── Price Cards ── */
+        .pricing-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .price-card {
+            border: 1.5px solid var(--border);
+            text-align: center;
+            padding: 28px 20px;
+            background: var(--bg-card);
+            border-radius: 3px;
+            position: relative;
+        }
+
+        .price-card.featured {
+            border-color: var(--accent-gold);
+            background: linear-gradient(160deg, #fffef9 60%, var(--accent-gold-light) 100%);
+            box-shadow: 0 4px 20px rgba(184, 149, 90, .15);
+        }
+
+        .price-card.featured .featured-badge {
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-gold);
+            color: #fff;
+            font-size: 9px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 4px 14px;
+            border-radius: 0 0 4px 4px;
+            white-space: nowrap;
+        }
+
+        .price-card .pc-label {
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            margin-bottom: 10px;
+        }
+
+        .price-card .pc-amount {
+            font-size: 42px;
+            font-weight: 300;
+            color: var(--ink);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .price-card.featured .pc-amount {
+            color: var(--accent-gold);
+        }
+
+        .price-card .pc-unit {
+            font-size: 11px;
+            color: var(--ink-soft);
+            margin-bottom: 20px;
+        }
+
+        .price-card .pc-desc {
+            font-size: 11px;
+            color: var(--ink-soft);
+            line-height: 1.7;
+            text-align: left;
+        }
+
+        .price-card .pc-tag {
+            display: inline-block;
+            margin-top: 16px;
+            font-size: 9px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border: 1px solid var(--border);
+            color: var(--ink-soft);
+            border-radius: 20px;
+        }
+
+        .price-card.featured .pc-tag {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        /* ── Compare Table ── */
+        .compare-label {
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        .compare-table thead th {
+            padding: 14px 20px;
+            text-align: left;
+            font-size: 9px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .compare-table thead th:first-child {
+            background: var(--accent);
+            border-radius: 3px 0 0 0;
+        }
+
+        .compare-table thead th.col-market {
+            background: #555;
+            text-align: center;
+        }
+
+        .compare-table thead th.col-mine {
+            background: var(--accent-gold);
+            text-align: center;
+            border-radius: 0 3px 0 0;
+        }
+
+        .compare-table tbody tr {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .compare-table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        .compare-table tbody tr:nth-child(even) {
+            background: var(--bg-off);
+        }
+
+        .compare-table tbody td {
+            padding: 16px 20px;
+            vertical-align: top;
+        }
+
+        .compare-table tbody td:first-child {
+            font-weight: 500;
+            color: var(--ink);
+        }
+
+        .compare-table tbody td.col-market {
+            text-align: center;
+            color: var(--ink-soft);
+        }
+
+        .compare-table tbody td.col-mine {
+            text-align: center;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .compare-table tbody td .sub {
+            display: block;
+            font-size: 10px;
+            color: var(--ink-faint);
+            font-weight: 400;
+            margin-top: 3px;
+        }
+
+        .savings-pill {
+            display: inline-block;
+            background: var(--green-light);
+            color: var(--green);
+            font-size: 10px;
+            letter-spacing: 1px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-top: 4px;
+        }
+
+        .compare-table tfoot td {
+            padding: 20px;
+            background: linear-gradient(90deg, var(--bg-off), var(--accent-gold-light));
+            font-size: 12px;
+        }
+
+        .compare-table tfoot .total-label {
+            font-weight: 600;
+            color: var(--ink);
+            font-size: 13px;
+        }
+
+        .compare-table tfoot .total-market {
+            text-align: center;
+            color: var(--ink-soft);
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        .compare-table tfoot .total-mine {
+            text-align: center;
+            color: var(--accent-gold);
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        /* ── Value Props ── */
+        .value-props {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-top: 28px;
+        }
+
+        .vp-item {
+            padding: 20px;
+            border-left: 2px solid var(--accent-gold);
+            background: var(--bg-off);
+        }
+
+        .vp-item h5 {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 8px;
+        }
+
+        .vp-item p {
+            font-size: 11px;
+            color: var(--ink-soft);
+            line-height: 1.7;
+        }
+
+        /* ── Roadmap ── */
+        .roadmap-track {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .roadmap-track::before {
+            content: '';
+            position: absolute;
+            left: 12px;
+            top: 8px;
+            bottom: 8px;
+            width: 1.5px;
+            background: linear-gradient(to bottom, var(--accent), var(--accent-gold));
+        }
+
+        .roadmap-item {
+            position: relative;
+            margin-bottom: 28px;
+            padding: 20px 24px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            border-radius: 3px;
+        }
+
+        .roadmap-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .roadmap-item::before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 24px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 2px solid var(--paper);
+            box-shadow: 0 0 0 1.5px var(--accent);
+        }
+
+        .roadmap-item.future::before {
+            background: var(--accent-gold);
+            box-shadow: 0 0 0 1.5px var(--accent-gold);
+        }
+
+        .rm-row {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 10px;
+        }
+
+        .rm-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .rm-phase {
+            font-size: 9px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 20px;
+            flex-shrink: 0;
+            font-weight: 600;
+        }
+
+        .rm-phase.now {
+            background: rgba(39, 174, 96, .1);
+            color: var(--green);
+            border: 1px solid rgba(39, 174, 96, .3);
+        }
+
+        .rm-phase.soon {
+            background: rgba(184, 149, 90, .1);
+            color: var(--accent-gold);
+            border: 1px solid rgba(184, 149, 90, .3);
+        }
+
+        .rm-phase.later {
+            background: rgba(44, 62, 80, .08);
+            color: var(--accent);
+            border: 1px solid rgba(44, 62, 80, .2);
+        }
+
+        .rm-desc {
+            font-size: 12px;
+            color: var(--ink-soft);
+            line-height: 1.7;
+        }
+
+        .rm-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .rm-feat-tag {
+            font-size: 10px;
+            padding: 4px 12px;
+            background: var(--bg-off);
+            border: 1px solid var(--border);
+            color: var(--ink-mid);
+            border-radius: 20px;
+            letter-spacing: .5px;
+        }
+
+        /* ── Info Box ── */
+        .info-box {
+            background: linear-gradient(90deg, var(--accent-gold-light), #fff8ee);
+            border-left: 3px solid var(--accent-gold);
+            padding: 18px 22px;
+            margin: 24px 0;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .info-box h5 {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent-gold);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .info-box p {
+            font-size: 12px;
+            color: var(--ink-soft);
+            line-height: 1.7;
+        }
+
+        .green-box {
+            background: var(--green-light);
+            border-left-color: var(--green);
+        }
+
+        .green-box h5 {
+            color: var(--green);
+        }
+
+        /* ── Summary Grid ── */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 28px;
+        }
+
+        .summary-card {
+            padding: 28px;
+            background: var(--bg-card);
+            border: 1.5px solid var(--border);
+            border-radius: 3px;
+        }
+
+        .summary-card.accent-card {
+            border-color: var(--accent-gold);
+            background: linear-gradient(160deg, var(--paper) 60%, var(--accent-gold-light) 100%);
+        }
+
+        .summary-card h4 {
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            margin-bottom: 20px;
+        }
+
+        .sum-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 12px;
+        }
+
+        .sum-row:last-child {
+            border-bottom: none;
+        }
+
+        .sum-row .s-label {
+            color: var(--ink-mid);
+        }
+
+        .sum-row .s-val {
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .sum-row .s-val.gold {
+            color: var(--accent-gold);
+            font-size: 16px;
+        }
+
+        .sum-row .s-note {
+            font-size: 10px;
+            color: var(--ink-faint);
+        }
+
+        /* ── Sign-off ── */
+        .signoff {
+            background: linear-gradient(160deg, #101820 60%, #1e2d3d 100%);
+            color: #fff;
+            padding: 48px 40px;
+            text-align: center;
+            margin: 40px 0 0;
+        }
+
+        .signoff h2 {
+            font-size: 28px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .signoff p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, .6);
+            max-width: 500px;
+            margin: 0 auto 32px;
+            line-height: 1.8;
+        }
+
+        .contact-strip {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-strip .cs-item {
+            text-align: center;
+        }
+
+        .contact-strip .cs-lbl {
+            font-size: 9px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .3);
+            margin-bottom: 6px;
+        }
+
+        .contact-strip .cs-val {
+            font-size: 14px;
+            color: var(--accent-gold);
+            font-weight: 500;
+        }
+
+        /* ── Misc ── */
+        hr.div {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 28px 0;
+        }
+
+        /* ── Print ── */
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 10mm 12mm;
+            }
+
+            *,
+            *::before,
+            *::after {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            body {
+                background: #ebebeb !important;
+            }
+
+            .cover {
+                break-after: page;
+                min-height: unset;
+                height: 100vh;
+                background: #101820 !important;
+            }
+
+            .doc {
+                padding: 0;
+            }
+
+            .doc-section {
+                break-inside: avoid;
+                box-shadow: none;
+                margin: 0 auto;
+                margin-top: 0;
+                break-before: page;
+            }
+
+            .signoff {
+                break-before: page;
+            }
+
+            * {
+                box-shadow: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- COVER -->
+    <div class="cover">
+        <div class="cover-badge">Professional Proposal · 2026</div>
+        <div class="cover-logo">KR</div>
+        <h1>Web Development<br><span>Pricing &amp; Proposal</span></h1>
+        <h2>Tailored for Your Construction Business</h2>
+        <div class="cover-divider"></div>
+        <div class="cover-meta">
+            <div class="cover-meta-item">
+                <div class="label">Prepared By</div>
+                <div class="value">Keshan Ransilu</div>
+            </div>
+            <div class="cover-meta-item">
+                <div class="label">Company</div>
+                <div class="value">E Marketing Paradice</div>
+            </div>
+            <div class="cover-meta-item">
+                <div class="label">Contact</div>
+                <div class="value">0767 639 484</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="doc">
+
+        <!-- SECTION 1 — PROCESS -->
+        <div class="doc-section">
+            <div class="section-header">
+                <div class="sh-num">1</div>
+                How the Work Gets Done — Our Process
+            </div>
+            <div class="section-body">
+                <div class="sec-eyebrow">Workflow &amp; Methodology</div>
+                <h2 class="sec-title">A Clear, Step-by-Step Process<br>— No Surprises, Ever</h2>
+                <p class="sec-lead">Everything happens in an orderly, transparent sequence. You will be informed and
+                    involved at every stage, and nothing goes live without your sign-off.</p>
+
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-num">01</div>
+                        <h4>Discovery &amp; Planning</h4>
+                        <p>Understanding your business, goals, competitors, and target audience. We define pages,
+                            features &amp; content.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">02</div>
+                        <h4>Design &amp; Wireframe</h4>
+                        <p>A visual layout is shared with you (like this document) before any code is written. You
+                            approve the design.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num gold">03</div>
+                        <h4>Development &amp; Build</h4>
+                        <p>Full website built with clean, fast, mobile-friendly code. Domain and hosting are set up
+                            during this phase.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num gold">04</div>
+                        <h4>Launch &amp; Handover</h4>
+                        <p>Final review together, last-minute changes, then the site goes live. You receive all account
+                            credentials.</p>
+                    </div>
+                </div>
+
+                <hr class="div" />
+
+                <div class="sec-eyebrow">What You Receive</div>
+                <h3 style="font-size:17px;font-weight:400;color:var(--ink);margin-bottom:20px;">Everything Needed to
+                    Succeed Online</h3>
+
+                <div class="deliverables">
+                    <div class="deliverable-item">
+                        <div class="d-icon">🌐</div>
+                        <div class="d-text">
+                            <h5>Professional Website</h5>
+                            <p>Multi-page site — Home, About, Services, Gallery, Designs, Contact. Fully responsive on
+                                all devices.</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="d-icon">🔗</div>
+                        <div class="d-text">
+                            <h5>Custom Domain Name</h5>
+                            <p>Your own .com / .lk domain (e.g. yourcompany.lk), registered and pointed to your website.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="d-icon">🚀</div>
+                        <div class="d-text">
+                            <h5>Fast &amp; Reliable Hosting</h5>
+                            <p>Hosted on a professional server — your site stays online 24/7 with high-speed loading.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="d-icon">📱</div>
+                        <div class="d-text">
+                            <h5>Mobile-First Design</h5>
+                            <p>Looks perfect on phones, tablets, and desktops — where most clients will first find you.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="d-icon">🔍</div>
+                        <div class="d-text">
+                            <h5>Basic SEO Setup</h5>
+                            <p>Meta tags, page titles, Google-friendly structure — so your site can be found through
+                                search.</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="d-icon">🛡️</div>
+                        <div class="d-text">
+                            <h5>SSL Certificate (HTTPS)</h5>
+                            <p>Free security certificate included — the padlock icon that makes clients trust your site.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box" style="margin-top:28px;">
+                    <h5>Typical Timeline</h5>
+                    <p>Discovery &amp; Design: 3–5 days &nbsp;·&nbsp; Development: 7–14 days &nbsp;·&nbsp; Review &amp;
+                        Launch: 2–3 days.
+                        &nbsp;Total: <strong>2–3 weeks</strong> from first meeting to live website. Rush delivery
+                        available on request.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 2 — PRICING -->
+        <div class="doc-section">
+            <div class="section-header gold">
+                <div class="sh-num">2</div>
+                Pricing — Transparent &amp; Fair
+            </div>
+            <div class="section-body">
+                <div class="sec-eyebrow">Investment Summary</div>
+                <h2 class="sec-title">Simple, Honest Pricing<br>— No Hidden Costs</h2>
+                <p class="sec-lead">Three clear categories. You always know exactly what you are paying for and why.</p>
+
+                <div class="pricing-intro">
+                    <div class="price-card featured">
+                        <span class="featured-badge">One-Time Payment</span>
+                        <div class="pc-label">Website Build + Domain</div>
+                        <div class="pc-amount">30,000</div>
+                        <div class="pc-unit">LKR · paid once · valid 1 year domain</div>
+                        <div class="pc-desc">Full website development — all pages, design, domain name registration, SSL
+                            certificate, and deployment to a live server.</div>
+                        <div class="pc-tag">One-Time Fee</div>
+                    </div>
+
+                    <div class="price-card">
+                        <div class="pc-label">Hosting, Maintenance &amp; Domain</div>
+                        <div class="pc-amount">10,000</div>
+                        <div class="pc-unit">LKR · per year · renewal</div>
+                        <div class="pc-desc">
+                            Annual renewal covering:<br>
+                            • Domain name renewal — <strong>Rs. 8,000</strong><br>
+                            • Hosting &amp; maintenance — <strong>Rs. 2,000</strong><br><br>
+                            <em style="font-size:10px;color:#b8955a;">Note: may increase slightly as your website grows
+                                with more images &amp; visitors.</em>
+                        </div>
+                        <div class="pc-tag">Yearly</div>
+                    </div>
+
+                    <div class="price-card">
+                        <div class="pc-label">New Features &amp; Updates</div>
+                        <div class="pc-amount">3,000+</div>
+                        <div class="pc-unit">LKR · per update / feature</div>
+                        <div class="pc-desc">Adding new pages, forms, photo galleries, WhatsApp chat, booking systems,
+                            animations, or any customisation requested after the site goes live.</div>
+                        <div class="pc-tag">On Request</div>
+                    </div>
+                </div>
+
+                <div class="info-box green-box">
+                    <h5>✓ What This Means For You</h5>
+                    <p>In Year 1 your total investment is <strong>LKR 30,000</strong> (all-inclusive, domain + hosting
+                        bundled).
+                        From Year 2 onwards you only pay <strong>LKR 10,000 / year</strong> — Rs. 8,000 domain renewal +
+                        Rs. 2,000 hosting &amp; maintenance.
+                        New features are optional and charged only when you need them.</p>
+                </div>
+
+                <div class="summary-grid">
+                    <div class="summary-card accent-card">
+                        <h4>Your Year 1 Cost</h4>
+                        <div class="sum-row">
+                            <span class="s-label">Website Development</span>
+                            <span class="s-val">Rs. 30,000</span>
+                        </div>
+                        <div class="sum-row">
+                            <span class="s-label">Domain (1 year) <span class="s-note">— included above</span></span>
+                            <span class="s-val gold">Free</span>
+                        </div>
+                        <div class="sum-row">
+                            <span class="s-label">Hosting (1 year) <span class="s-note">— included above</span></span>
+                            <span class="s-val gold">Free</span>
+                        </div>
+                        <div class="sum-row">
+                            <span class="s-label" style="font-weight:700">Year 1 Total</span>
+                            <span class="s-val gold">Rs. 30,000</span>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <h4>From Year 2 Onwards</h4>
+                        <div class="sum-row">
+                            <span class="s-label">Domain Renewal</span>
+                            <span class="s-val">Rs. 8,000</span>
+                        </div>
+                        <div class="sum-row">
+                            <span class="s-label">Hosting &amp; Maintenance</span>
+                            <span class="s-val">Rs. 2,000</span>
+                        </div>
+                        <div class="sum-row">
+                            <span class="s-label">New Features (optional)</span>
+                            <span class="s-val">Rs. 3,000+ each</span>
+                        </div>
+                        <div class="sum-row">
+                            <span class="s-label" style="font-weight:700">Yearly Total</span>
+                            <span class="s-val" style="color:var(--ink)">Rs. 10,000 / yr</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3 — COMPARISON -->
+        <div class="doc-section">
+            <div class="section-header green-hdr">
+                <div class="sh-num">3</div>
+                Sri Lanka Market Comparison — Why Our Price Makes Sense
+            </div>
+            <div class="section-body">
+                <div class="sec-eyebrow">Price Comparison</div>
+                <h2 class="sec-title">How We Compare to the<br>Sri Lanka Market</h2>
+                <p class="sec-lead">Below is an honest side-by-side comparison of what the average Sri Lankan web
+                    development market charges versus what you pay with us — for the exact same deliverables.</p>
+
+                <div class="compare-label">Standard Sri Lanka Market vs. Our Pricing (All amounts in LKR)</div>
+
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>Service / Item</th>
+                            <th class="col-market">🇱🇰 Typical Market Price</th>
+                            <th class="col-mine">⭐ Our Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Website Development (Multi-page)<span class="sub">Home, About, Services, Gallery,
+                                    Contact</span></td>
+                            <td class="col-market">Rs. 50,000 – 150,000<span class="sub">varies by agency /
+                                    complexity</span></td>
+                            <td class="col-mine">Rs. 30,000<div class="savings-pill">Save Rs. 20,000–120,000</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Domain Registration (.lk / .com)<span class="sub">1-year registration, first year</span>
+                            </td>
+                            <td class="col-market">Rs. 5,000 – 12,000</td>
+                            <td class="col-mine">Included<div class="savings-pill">Save Rs. 5,000+</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Web Hosting (Shared / VPS)<span class="sub">Yearly hosting fee</span></td>
+                            <td class="col-market">Rs. 5,000 – 20,000 / yr</td>
+                            <td class="col-mine">Included in Year 1<div class="savings-pill">Save Rs. 5,000+</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>SSL Certificate (HTTPS / Padlock)<span class="sub">Security certificate — annual</span>
+                            </td>
+                            <td class="col-market">Rs. 2,000 – 8,000 / yr</td>
+                            <td class="col-mine">Free (included)<div class="savings-pill">Save Rs. 2,000+</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Mobile-Responsive Design<span class="sub">Works on phone, tablet &amp; desktop</span>
+                            </td>
+                            <td class="col-market">Rs. 5,000 – 15,000 extra</td>
+                            <td class="col-mine">Always Included<div class="savings-pill">No extra cost</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Basic SEO Setup<span class="sub">Google-friendly page structure</span></td>
+                            <td class="col-market">Rs. 5,000 – 20,000 extra</td>
+                            <td class="col-mine">Included<div class="savings-pill">Save Rs. 5,000+</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Annual Hosting + Maintenance (Year 2+)<span class="sub">Hosting, domain renewal,
+                                    upkeep</span></td>
+                            <td class="col-market">Rs. 15,000 – 40,000 / yr</td>
+                            <td class="col-mine">Rs. 10,000 / yr<div class="savings-pill">Save Rs. 5,000–30,000 / yr
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Adding New Feature / Update<span class="sub">Per feature, post-launch</span></td>
+                            <td class="col-market">Rs. 5,000 – 25,000 each</td>
+                            <td class="col-mine">From Rs. 3,000<div class="savings-pill">Save Rs. 2,000+ each</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td class="total-label">Estimated Year 1 Total Cost</td>
+                            <td class="total-market col-market">
+                                <strong>Rs. 72,000 – 225,000</strong><br>
+                                <span style="font-size:10px;color:#aaa;">if purchased separately from market</span>
+                            </td>
+                            <td class="total-mine col-mine">Rs. 30,000</td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+                <div class="info-box green-box" style="margin-top:28px;">
+                    <h5>💰 Potential Year 1 Savings: Rs. 42,000 – Rs. 195,000</h5>
+                    <p>By working with us, you receive a complete, professional web presence at a fraction of the cost
+                        charged by most Sri Lankan agencies — with no compromise on quality, speed, or design standards.
+                    </p>
+                </div>
+
+                <div class="value-props">
+                    <div class="vp-item">
+                        <h5>Direct Communication</h5>
+                        <p>No middlemen. You speak directly with the developer. Faster responses, fewer
+                            misunderstandings.</p>
+                    </div>
+                    <div class="vp-item">
+                        <h5>Custom-Built, Not Templates</h5>
+                        <p>Your site is designed uniquely for your brand — not picked from a generic template library
+                            shared by thousands.</p>
+                    </div>
+                    <div class="vp-item">
+                        <h5>Long-Term Partnership</h5>
+                        <p>Low yearly renewal rate rewards your loyalty. We grow with your business, not against your
+                            budget.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 4 — ROADMAP -->
+        <div class="doc-section">
+            <div class="section-header">
+                <div class="sh-num">4</div>
+                Future Roadmap — Where We Can Take Your Website
+            </div>
+            <div class="section-body">
+                <div class="sec-eyebrow">Growth Plan</div>
+                <h2 class="sec-title">Your Website Can Grow<br>As Your Business Grows</h2>
+                <p class="sec-lead">The initial build is just the beginning. Below are optional future features you can
+                    add at any time — each quoted separately and only done when you need it.</p>
+
+                <div class="roadmap-track">
+                    <div class="roadmap-item">
+                        <div class="rm-row">
+                            <span class="rm-title">Phase 1 — Initial Launch</span>
+                            <span class="rm-phase now">✓ Included</span>
+                        </div>
+                        <p class="rm-desc">Everything that goes live in the first build. Full professional website ready
+                            to impress clients.</p>
+                        <div class="rm-features">
+                            <span class="rm-feat-tag">Home Page</span>
+                            <span class="rm-feat-tag">About Page</span>
+                            <span class="rm-feat-tag">Services Page</span>
+                            <span class="rm-feat-tag">Designs / Portfolio</span>
+                            <span class="rm-feat-tag">Gallery</span>
+                            <span class="rm-feat-tag">Contact Page</span>
+                            <span class="rm-feat-tag">Mobile Responsive</span>
+                            <span class="rm-feat-tag">Domain + Hosting</span>
+                            <span class="rm-feat-tag">SSL Certificate</span>
+                        </div>
+                    </div>
+
+                    <div class="roadmap-item future">
+                        <div class="rm-row">
+                            <span class="rm-title">Phase 2 — Client Engagement Features</span>
+                            <span class="rm-phase soon">Recommended Next</span>
+                        </div>
+                        <p class="rm-desc">Boost engagement and start capturing lead information directly through your
+                            website. From <strong style="color:var(--accent-gold)">Rs. 3,000</strong> per feature.</p>
+                        <div class="rm-features">
+                            <span class="rm-feat-tag">WhatsApp Chat Button</span>
+                            <span class="rm-feat-tag">Quote Request Form</span>
+                            <span class="rm-feat-tag">Google Maps Integration</span>
+                            <span class="rm-feat-tag">Testimonials Section</span>
+                            <span class="rm-feat-tag">Facebook / Instagram Feed</span>
+                            <span class="rm-feat-tag">Popup Contact Form</span>
+                        </div>
+                    </div>
+
+                    <div class="roadmap-item future">
+                        <div class="rm-row">
+                            <span class="rm-title">Phase 3 — Authority &amp; Marketing</span>
+                            <span class="rm-phase later">Future Growth</span>
+                        </div>
+                        <p class="rm-desc">Establish your brand as the #1 construction company in the region. From
+                            <strong style="color:var(--accent)">Rs. 5,000</strong> per feature.</p>
+                        <div class="rm-features">
+                            <span class="rm-feat-tag">Blog / News Articles</span>
+                            <span class="rm-feat-tag">Projects Portfolio Expand</span>
+                            <span class="rm-feat-tag">SEO Content Strategy</span>
+                            <span class="rm-feat-tag">Google Analytics Dashboard</span>
+                            <span class="rm-feat-tag">Before &amp; After Sliders</span>
+                            <span class="rm-feat-tag">Video Background</span>
+                            <span class="rm-feat-tag">Awards / Certifications Section</span>
+                        </div>
+                    </div>
+
+                    <div class="roadmap-item future">
+                        <div class="rm-row">
+                            <span class="rm-title">Phase 4 — Advanced Functionality</span>
+                            <span class="rm-phase later">Long-Term</span>
+                        </div>
+                        <p class="rm-desc">Transform your website into a full business tool — manage projects, bookings,
+                            and client communication from a single platform. Custom quoted per scope.</p>
+                        <div class="rm-features">
+                            <span class="rm-feat-tag">Client Login Portal</span>
+                            <span class="rm-feat-tag">Project Progress Tracker</span>
+                            <span class="rm-feat-tag">Online Booking System</span>
+                            <span class="rm-feat-tag">Payment Integration</span>
+                            <span class="rm-feat-tag">Materials Cost Calculator</span>
+                            <span class="rm-feat-tag">Admin Dashboard</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box" style="margin-top:32px;">
+                    <h5>🔔 No Pressure, Ever</h5>
+                    <p>Future phases are entirely optional. The website is complete and valuable from Day 1. These are
+                        simply doors that open as your business grows — you choose what to add and when. All updates are
+                        quoted in advance, with no surprise invoices.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SIGN-OFF -->
+        <div class="signoff doc-section">
+            <h2>Ready to Get Started?</h2>
+            <p>Let's build a website that brings your construction business the attention it deserves. Reach out and
+                we'll begin the discovery call at a time that suits you.</p>
+            <div class="contact-strip">
+                <div class="cs-item">
+                    <div class="cs-lbl">Phone / WhatsApp</div>
+                    <div class="cs-val">0767 639 484</div>
+                </div>
+                <div class="cs-item">
+                    <div class="cs-lbl">Company</div>
+                    <div class="cs-val">E Marketing Paradice</div>
+                </div>
+                <div class="cs-item">
+                    <div class="cs-lbl">Location</div>
+                    <div class="cs-val">Assedduma, Kuliyapitiya</div>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /doc -->
+
+</body>
+
+</html>
