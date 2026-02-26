@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Architectural Services | Design, Build & Restoration",
+    description: "From turnkey construction to heritage restoration, explore our comprehensive architectural services designed for the Sri Lankan climate.",
+};
+
 import Image from "next/image";
 import Link from "next/link";
 import { PenTool, HardHat, Home, Hammer } from "lucide-react";

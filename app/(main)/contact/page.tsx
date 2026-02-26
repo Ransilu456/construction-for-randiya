@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Start Your Project | Studio Inquiries & Locations",
+    description: "Ready to build your sanctuary? Contact our architectural studio in Chilaw, Sri Lanka to discuss your vision for bespoke tropical living.",
+};
+
 import { Mail, MapPin, Phone, Clock } from "lucide-react";
 import Image from "next/image";
 

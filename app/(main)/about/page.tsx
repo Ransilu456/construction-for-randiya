@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Our Philosophy & Story | Tropical Modernism Pioneers",
+    description: "Discover the legacy of Best Arch. Pioneers of Tropical Modernism in Sri Lanka with over two decades of architectural excellence.",
+};
+
 import Image from "next/image";
 
 export default function AboutPage() {

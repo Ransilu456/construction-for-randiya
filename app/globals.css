@@ -20,24 +20,14 @@
 @layer base {
   :root {
     --background: #FBF9F6;
-    /* Cream/Off-white for a breathable feel */
     --foreground: #1A1A1A;
-    /* Deep charcoal */
-
     --primary: #4A3022;
-    /* Deep Mahogany / Teak */
     --primary-foreground: #FBF9F6;
-
     --secondary: #E6E2DD;
-    /* Warm stone/sand for subtle sections */
     --secondary-foreground: #1A1A1A;
-
     --accent: #9C5741;
-    /* Muted terracotta for highlights/buttons */
-
     --card: #FFFFFF;
     --border: #EAE6E1;
-    /* Soft subtle border */
   }
 
   body {
@@ -45,7 +35,7 @@
     color: var(--foreground);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden; /* Prevent horizontal scroll on mobile */
+    overflow-x: hidden; 
   }
 
   h1,
@@ -58,7 +48,6 @@
     line-height: 1.1;
   }
 
-  /* Fluid typography */
   h1 { font-size: clamp(2.5rem, 8vw, 6rem); }
   h2 { font-size: clamp(2rem, 5vw, 3.5rem); }
   h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
@@ -68,7 +57,6 @@
   }
 }
 
-/* Elegant scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -85,7 +73,6 @@
   background: var(--primary);
 }
 
-/* Utilities */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }

@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Visual Journal | Completed Tropical Architecture Projects",
+    description: "Explore a curated collection of our finished architectural projects in Sri Lanka. Witness the interplay of light, shadow, and organic materials.",
+};
+
 import Image from "next/image";
 
 import { designsData } from "@/data/designs";

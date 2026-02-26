@@ -5,6 +5,12 @@ import Link from "next/link";
 
 import { designsData } from "@/data/designs";
 
+export async function generateStaticParams() {
+    return designsData.map((project) => ({
+        slug: project.slug,
+    }));
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
     const design = (designsData).find(d => d.slug === slug);
